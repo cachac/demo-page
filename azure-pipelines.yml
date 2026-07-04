@@ -24,6 +24,9 @@ stages:
         pool: local-agent
           
         steps: 
+          - script: |
+              echo "var=$(appVersion)"
+          
           - task: Docker@2
             displayName: Build an image
             inputs: 
