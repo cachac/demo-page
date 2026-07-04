@@ -1,4 +1,5 @@
 # demo-public-page
+v1.0.1
 
 Esta es una página de pruebas de contenedores y CICD.
 
