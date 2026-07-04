@@ -6,7 +6,7 @@ resources:
 
 variables:
   - group: "CICD"
-  - name: app_var
+  - name: appVariable
     value: $[variables.appVariable]
 
 parameters: 
