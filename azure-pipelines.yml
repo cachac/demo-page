@@ -5,9 +5,7 @@ resources:
 - repo: self
 
 variables:
-  - group: "CICD"
-  - name: appVariable
-    value: $[variables.appVariable]
+  - group: CICD
 
 parameters: 
   - name: tag
