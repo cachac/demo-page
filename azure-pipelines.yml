@@ -5,9 +5,9 @@ resources:
 - repo: self
 
 variables:
-  - group: CICD
-  - name: appVersion
-    value: '$[variables.appVersion]'
+  - group: "CICD"
+  - name: app_var
+    value: $[variables.appVariable]
 
 parameters: 
   - name: tag
