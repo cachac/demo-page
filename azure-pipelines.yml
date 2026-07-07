@@ -32,7 +32,7 @@ stages:
               repository: ${{ parameters.imageName }}
               dockerfile: '**/Dockerfile'
               tags: ${{ parameters.tag }}
-              arguments: '--build-arg VERSION=$(appVersion)'
+              arguments: '--build-arg VERSION=${{ parameters.tag }}'
               containerRegistry: registryConnection
           
           - task: Docker@2
