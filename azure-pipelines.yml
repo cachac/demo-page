@@ -14,8 +14,8 @@ parameters:
     default: 'demo-page'
 
 stages:
-  - stage: Build
-    displayName: Build Image
+  - stage: CICD
+    displayName: CICD workflow
     jobs:
       - job: Build
         displayName: Build
@@ -43,4 +43,19 @@ stages:
               repository: ${{ parameters.imageName }}
               tags: ${{ parameters.tag }}
 
+      - job: Deploy
+        displayName: Deploy
+        dependsOn: Build
+        pool: local-agent
+        steps:
+          - task: AzureContainerApps@1
+
+            inputs:
+              azureSubscription: 'appdeployconnection'
+              imageToBuild: acrappscarlos.azurecr.io/${{ parameters.imageName }}:${{ parameters.tag }}
+              containerAppName: app-demo-page
+              resourceGroup: kube
+
+              acrUsername: $(acrUsername)
+              acrPassword: $(acrPassword)
 
